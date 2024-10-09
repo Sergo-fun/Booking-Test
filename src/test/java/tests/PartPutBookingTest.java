@@ -24,7 +24,7 @@ public class PartPutBookingTest {
         String token = responseCreate.jsonPath().getString("token");
         System.out.println(token);
 
-        Response responseUpdate = apiClient.partUpdatePerson(12, token);
+        Response responseUpdate = apiClient.partUpdatePerson(31, token);
         assertThat(responseUpdate.getStatusCode()).isEqualTo(200);
     }
 } 

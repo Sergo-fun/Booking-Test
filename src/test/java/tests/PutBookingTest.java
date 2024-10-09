@@ -22,12 +22,8 @@ public class PutBookingTest {
         String token = responseCreate.jsonPath().getString("token");
         System.out.println(token);
 
-        Response responseUpdate = apiClient.updatePerson(20, token);
+        Response responseUpdate = apiClient.updatePerson(31, token);
         assertThat(responseUpdate.getStatusCode()).isEqualTo(200);
 
     }
-
-
-
-
 }

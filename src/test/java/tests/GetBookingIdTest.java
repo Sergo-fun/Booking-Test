@@ -22,7 +22,4 @@ public class GetBookingIdTest  {
         Response response = apiclient.getId(1);
         assertThat(response.getStatusCode()).isEqualTo(200);
     }
-
-
-
 }

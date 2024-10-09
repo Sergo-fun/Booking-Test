@@ -68,19 +68,25 @@ public class APIClient {
                 .when()
                 .get(ApiEndpoints.BOOkING.getPath()) // используем Enum для эндпоинта/ping
                 .then()
+                .log()
+                .all()
                 .statusCode(200) //ожидаемый статус код
                 .extract()
                 .response();
     }
 
-    public Response delete(int bookingid, String token) {
 
+    public Response delete(int bookingid, String token) {
         return getRequestSpec()
+                .header("Cookie", "token=" + token)
                 .when()
-                .header("Cookie", "token=", token)
+                .log()
+                .all()
                 .pathParam("id", bookingid)
                 .delete(ApiEndpoints.BOOkING.getPath() + "/{id}")
                 .then()
+                .log()
+                .all()
                 .statusCode(201)
                 .extract()
                 .response();
@@ -92,6 +98,8 @@ public class APIClient {
                 .pathParam("id", bookingid)
                 .get(ApiEndpoints.BOOkING.getPath() + "/{id}")
                 .then()
+                .log()
+                .all()
                 .statusCode(200)
                 .extract()
                 .response();
@@ -107,6 +115,8 @@ public class APIClient {
                 .when()
                 .post(ApiEndpoints.AUTH.getPath())
                 .then()
+                .log()
+                .all()
                 .statusCode(200)
                 .extract()
                 .response();
@@ -123,6 +133,8 @@ public class APIClient {
                 .when()
                 .post(ApiEndpoints.BOOkING.getPath())
                 .then()
+                .log()
+                .all()
                 .statusCode(200)
                 .extract()
                 .response();
@@ -138,12 +150,14 @@ public class APIClient {
         return getRequestSpec()
                 .body(requestBody)
                 .header("Cookie", "token=" + token)
-                .log().all()
+                .log()
+                .all()
                 .when()
                 .pathParam("id", bookingid)
                 .put(ApiEndpoints.BOOkING.getPath() + "/{id}")
                 .then()
-                .log().all()
+                .log()
+                .all()
                 .extract()
                 .response();
     }
@@ -160,7 +174,22 @@ public class APIClient {
                 .pathParam("id", bookingid)
                 .patch(ApiEndpoints.BOOkING.getPath() + "/{id}")
                 .then()
+                .log()
+                .all()
                 .statusCode(200)
+                .extract()
+                .response();
+    }
+
+    public Response getIdAfterDelete(int bookingid) {
+        return getRequestSpec()
+                .when()
+                .pathParam("id", bookingid)
+                .get(ApiEndpoints.BOOkING.getPath() + "/{id}")
+                .then()
+                .log()
+                .all()
+                .statusCode(404)
                 .extract()
                 .response();
     }

@@ -21,7 +21,6 @@ public class HealthCheckTest {
         Response response = apiClient.ping();
         assertThat(response.getStatusCode()).isEqualTo(201);
     }
-
 }
 
 

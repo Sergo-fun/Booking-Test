@@ -3,13 +3,10 @@ package tests;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import core.clients.APIClient;
-import core.models.Booking;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-
 
 public class CreateBookingTest {
     private APIClient apiClient;
@@ -29,8 +26,6 @@ public class CreateBookingTest {
 
         String responseBody = response.getBody().asString();
         System.out.println(responseBody);
-
-
     }
 }
 

@@ -36,7 +36,7 @@ public class AllStepsTest {
 
         assertThat(bookingId).isGreaterThan(0);
 
-        // Gроверка получения букинга
+        // Проверка получения букинга
         Response getBookingResponse = apiClient.getId(bookingId);
         assertEquals(200, getBookingResponse.getStatusCode(), "Ошибка при получении созданного букинга");
 

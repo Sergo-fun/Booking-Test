@@ -26,7 +26,7 @@ public class CreateDeleteTest {
     }
 
     @Test   // Создать букинг -> Удалить букинг
-    public void testEndToEnd2() throws JsonProcessingException {
+    public void CreateDelTest() throws JsonProcessingException {
 
         Response responseCreate = apiClient.createToken();
         String token = responseCreate.jsonPath().getString("token");

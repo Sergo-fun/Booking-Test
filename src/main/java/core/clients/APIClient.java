@@ -193,4 +193,16 @@ public class APIClient {
                 .extract()
                 .response();
     }
+    public Response getById(int bookingid) {
+        return getRequestSpec()
+                .when()
+                .pathParam("id", bookingid)
+                .get(ApiEndpoints.BOOkING.getPath() + "/{id}")
+                .then()
+                .log()
+                .all()
+                .statusCode(404)
+                .extract()
+                .response();
+    }
 }

@@ -28,7 +28,7 @@ public class CreateDeleteGetTest {
     }
 
     @Test // Создать букинг -> Удалить букинг -> Получить букинг
-    public void testEndToEnd3() throws JsonProcessingException {
+    public void CreateDelGetTest() throws JsonProcessingException {
 
         Response responseCreate = apiClient.createToken();
         String token = responseCreate.jsonPath().getString("token");
@@ -52,5 +52,8 @@ public class CreateDeleteGetTest {
 
         Response responseGetDel = apiClient.getIdAfterDelete(bookingId);
         assertEquals(404,responseGetDel.getStatusCode(),"Букинг не удален");
+
+        String responseAfterDeleteBody = responseGetDel.getBody().asString();
+        assertThat(responseAfterDeleteBody).contains("Not Found");
     }
 }

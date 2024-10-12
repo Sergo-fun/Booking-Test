@@ -24,6 +24,5 @@ public class PutBookingTest {
 
         Response responseUpdate = apiClient.updatePerson(31, token);
         assertThat(responseUpdate.getStatusCode()).isEqualTo(200);
-
     }
 }

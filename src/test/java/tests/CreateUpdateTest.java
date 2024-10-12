@@ -61,6 +61,7 @@ public class CreateUpdateTest {
         Object bookingDatesObject = bookingMap.get("bookingdates");
         // Приведение к Map и извлечение значений
         Map<String, String> bookingDates = (Map<String, String>) bookingDatesObject;
+        Assertions.assertThat(bookingDates).isNotEmpty();
 
         // Проверка обновленных дат
         assertThat(bookingDates.get("checkin")).isEqualTo("2019-01-01");

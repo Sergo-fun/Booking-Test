@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import core.clients.APIClient;
 import core.models.Booking;
+import core.models.BookingCreate;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -29,7 +30,7 @@ public class CreateBookingTest {
         String responseBody = response.getBody().asString();
         System.out.println(responseBody);
 
-        Booking bookingResponse = objectMapper.readValue(responseBody, Booking.class);
+        BookingCreate bookingCreateResponse = objectMapper.readValue(responseBody, BookingCreate.class);
     }
 }
 

@@ -11,6 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PartPutBookingTest {
 
     private APIClient apiClient;
+    private int bookingId;
 
     @BeforeEach
     public void setup() {
@@ -24,7 +25,7 @@ public class PartPutBookingTest {
         String token = responseCreate.jsonPath().getString("token");
         System.out.println(token);
 
-        Response responseUpdate = apiClient.partUpdatePerson(0, token);
+        Response responseUpdate = apiClient.partUpdatePerson(9 , token);
         assertThat(responseUpdate.getStatusCode()).isEqualTo(200);
     }
 } 

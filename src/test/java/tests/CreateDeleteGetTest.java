@@ -49,7 +49,6 @@ public class CreateDeleteGetTest {
 
         Response responseDelete = apiClient.delete(bookingId, token);
         assertThat(responseDelete.getStatusCode()).isEqualTo(201);
-
         Response responseGetDel = apiClient.getIdAfterDelete(bookingId);
         assertEquals(404,responseGetDel.getStatusCode(),"Букинг не удален");
 

@@ -22,8 +22,13 @@ dependencies {
 
 // AssertJ for better assertions
     testImplementation 'org.assertj:assertj-core:3.24.2'
+
+
+    testImplementation group: 'io.qameta.allure', name: 'allure-junit5', version: '2.29.0'
+
 }
 
 test {
     useJUnitPlatform()
 }
+

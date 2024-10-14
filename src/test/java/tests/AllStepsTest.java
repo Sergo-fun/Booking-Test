@@ -4,14 +4,18 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import core.clients.APIClient;
+import io.qameta.allure.*;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.Map;
 
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Epic("Booking Management")
+@Feature("Booking Operations")
 public class AllStepsTest {
     private APIClient apiClient;
     private static int bookingId;
@@ -27,6 +31,9 @@ public class AllStepsTest {
     }
 
     @Test // Создать букинг -> Частично обновить -> Полностью обновить -> Удалить
+    @Story("Создать, частично обновить, полностью обновить, удалить ")
+    @Description("Тест, который создаёт букинг, частично обновляет его, полностью обновляет и затем удаляет.")
+    @Severity(SeverityLevel.BLOCKER)
     public void createPartUpdateFullUpdateDeleteTest() throws JsonProcessingException {
         // создание букинга
         Response responseCreatePerson = apiClient.createPerson();

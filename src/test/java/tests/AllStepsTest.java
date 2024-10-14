@@ -14,8 +14,8 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@Epic("Booking Management")
-@Feature("Booking Operations")
+@Epic("Проверка полноценного сценария")
+@Feature("Использование нескольких методов")
 public class AllStepsTest {
     private APIClient apiClient;
     private static int bookingId;

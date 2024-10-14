@@ -5,11 +5,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import core.clients.APIClient;
 import core.models.Booking;
 import core.models.BookingCreate;
+import io.qameta.allure.*;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+@Epic("Проверка создания букинга")
+@Feature("Создать одного человека")
 public class CreateBookingTest {
     private APIClient apiClient;
     private ObjectMapper objectMapper;
@@ -22,6 +25,9 @@ public class CreateBookingTest {
     }
 
     @Test
+    @Story("Создать person ")
+    @Description("Тест, который создаёт букинг.")
+    @Severity(SeverityLevel.NORMAL)
     public void TestCreation() throws JsonProcessingException {
 
         Response response = apiClient.createPerson();

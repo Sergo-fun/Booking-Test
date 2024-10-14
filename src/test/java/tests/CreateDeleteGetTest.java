@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import core.clients.APIClient;
+import io.qameta.allure.*;
 import io.restassured.response.Response;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,6 +15,8 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Epic("Проверка создания и удаления букинга")
+@Feature("Создать один букинг, а после удалить и снова его получить")
 public class CreateDeleteGetTest {
 
     private APIClient apiClient;
@@ -27,7 +30,10 @@ public class CreateDeleteGetTest {
         objectMapper = new ObjectMapper();
     }
 
-    @Test // Создать букинг -> Удалить букинг -> Получить букинг
+    @Test
+    @Story("Создать букинг -> Удалить букинг -> Получить букинг ")
+    @Description("Тест, который проверяет корректность удаления.")
+    @Severity(SeverityLevel.NORMAL)
     public void CreateDelGetTest() throws JsonProcessingException {
 
         Response responseCreate = apiClient.createToken();

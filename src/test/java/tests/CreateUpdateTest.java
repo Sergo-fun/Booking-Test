@@ -4,19 +4,19 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import core.clients.APIClient;
-import core.models.Booking;
-import core.models.BookingDates;
+import io.qameta.allure.*;
 import io.restassured.response.Response;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+@Epic("Проверка обновления букинга")
+@Feature("Создать один букинг, а после обновить")
 public class CreateUpdateTest {
 
     private APIClient apiClient;
@@ -29,7 +29,10 @@ public class CreateUpdateTest {
         objectMapper = new ObjectMapper();
     }
 
-    @Test // Создать букинг -> Обновить букинг
+    @Test
+    @Story("Создать букинг -> Обновить букинг")
+    @Description("Тест, который проверяет корректность обновления.")
+    @Severity(SeverityLevel.NORMAL)
     public void CreatePutTest() throws JsonProcessingException {
 
         Response responseCreate = apiClient.createToken();

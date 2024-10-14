@@ -2,11 +2,15 @@ package tests;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import core.clients.APIClient;
+import io.qameta.allure.*;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
+@Epic("Проверка частичного обновления")
+@Feature("Выводится подробная информация о с частично обновленными полями")
 
 public class PartPutBookingTest {
 
@@ -19,6 +23,9 @@ public class PartPutBookingTest {
     }
 
     @Test
+    @Story("Необходимо частично обновить букинг")
+    @Description("Тест, который проверяет частичную обновленность полей пользователя")
+    @Severity(SeverityLevel.NORMAL)
     public void partUpdateTest() throws JsonProcessingException {
 
         Response responseCreate = apiClient.createToken();

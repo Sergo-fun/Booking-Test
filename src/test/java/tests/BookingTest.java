@@ -1,10 +1,14 @@
 package tests;
 
 import core.clients.APIClient;
+import io.qameta.allure.*;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+@Epic("Проверка полноценного сценария с частичным обновление")
+@Feature("Использование нескольких методов")
 
 public class BookingTest {
 
@@ -22,6 +26,9 @@ public class BookingTest {
     }
 
     @Test
+    @Story("Создать, обновить, частично обновить ")
+    @Description("Тест, который создаёт букинг, обновляет его, частично обновляет.")
+    @Severity(SeverityLevel.NORMAL)
     public void testCreateUpdatePartUpdateBooking() throws Exception {
 
         // 1. Создание бронирования

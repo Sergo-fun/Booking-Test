@@ -4,6 +4,7 @@ package tests;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import core.clients.APIClient;
+import io.qameta.allure.*;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,6 +12,9 @@ import core.models.Booking;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
+@Epic("Получение данных об одном пользователе")
+@Feature("Выводится подробная информация о с полями")
 
 public class GetBookingTest {
     private APIClient apiClient;
@@ -25,6 +29,9 @@ public class GetBookingTest {
     }
 
     @Test
+    @Story("Необходимо получить букинг")
+    @Description("Тест, который проверяет поля пользователя")
+    @Severity(SeverityLevel.NORMAL)
     public void testGetBooking() throws Exception {
         //Выполняем GET запрос на /ping через APIClient
         Response response = apiClient.getBooking();

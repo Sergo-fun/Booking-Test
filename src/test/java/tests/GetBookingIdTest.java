@@ -20,7 +20,7 @@ public class GetBookingIdTest  {
         apiclient = new APIClient();
     }
 
-    @Story("Получение информации списка пользователейф")
+    @Story("Получение информации списка пользователей")
     @Severity(SeverityLevel.MINOR)
 
     @Test

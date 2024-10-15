@@ -12,7 +12,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @Epic("Проверка удаления букинга")
 @Feature("Необходимо удалить букинг")
-
 public class DeleteBookingTest {
     private APIClient apiClient;
     private int bookingId;

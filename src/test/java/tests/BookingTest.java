@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 
 @Epic("Проверка полноценного сценария с частичным обновление")
 @Feature("Использование нескольких методов")
-
 public class BookingTest {
 
     private static APIClient apiClient;
@@ -27,7 +26,7 @@ public class BookingTest {
 
     @Test
     @Story("Создать, обновить, частично обновить ")
-    @Description("Тест, который создаёт букинг, обновляет его, частично обновляет.")
+    @Description("Тест, который создаёт букинг, обновляет его полностью, частично обновляет.")
     @Severity(SeverityLevel.NORMAL)
     public void testCreateUpdatePartUpdateBooking() throws Exception {
 

@@ -22,7 +22,6 @@ public class GetBookingIdTest  {
 
     @Story("Получение информации списка пользователей")
     @Severity(SeverityLevel.MINOR)
-
     @Test
     public void TestId(){
         step("Получение Get");

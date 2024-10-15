@@ -23,12 +23,19 @@ dependencies {
 // AssertJ for better assertions
     testImplementation 'org.assertj:assertj-core:3.24.2'
 
-
     implementation group: 'io.qameta.allure', name: 'allure-junit5', version: '2.29.0'
+    testImplementation 'org.aspectj:aspectjweaver:1.9.22.1'
 
+}
+
+configurations {
+    agentConfig {
+        canBeResolved = true
+        extendsFrom testImplementation
+    }
 }
 
 test {
     useJUnitPlatform()
+    jvmArgs "-javaagent:${configurations.agentConfig.find { it.name.contains('aspectjweaver') }}"
 }
-

@@ -30,7 +30,7 @@ public class AllStepsTest {
         objectMapper = new ObjectMapper();
     }
 
-    @Test // Создать букинг -> Частично обновить -> Полностью обновить -> Удалить
+    @Test
     @Story("Создать, частично обновить, полностью обновить, удалить ")
     @Description("Тест, который создаёт букинг, частично обновляет его, полностью обновляет и затем удаляет.")
     @Severity(SeverityLevel.BLOCKER)

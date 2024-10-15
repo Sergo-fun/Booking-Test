@@ -12,7 +12,6 @@ import core.models.PartBooking;
 import core.models.User;
 import core.settings.ApiEndpoints;
 import io.qameta.allure.Step;
-import io.qameta.allure.Description;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -53,10 +52,7 @@ public class APIClient {
                 .log().all(); // Логирование всех запросов
     }
 
-
-
     @Step("Пинг сервера")
-    @Description("Отправляет GET запрос на эндпоинт ping.")
     public Response ping() {
         return getRequestSpec()
                 .when()
@@ -68,7 +64,6 @@ public class APIClient {
     }
 
     @Step("Получение списка букингов")
-    @Description("Отправляет GET запрос на эндпоинт для получения списка бронирования.")
     public Response getBooking() {
         return getRequestSpec()
                 .when()
@@ -81,8 +76,7 @@ public class APIClient {
                 .response();
     }
 
-    @Step("Удаление букинга с ID")
-    @Description("Отправляет DELETE запрос на эндпоинт для удаления бронирования.")
+    @Step("Удаление букинга по ID: {bookingid}")
     public Response delete(int bookingid, String token) {
         return getRequestSpec()
                 .header("Cookie", "token=" + token)
@@ -99,8 +93,7 @@ public class APIClient {
                 .response();
     }
 
-    @Step("Получение букинга по ID")
-    @Description("Отправляет GET запрос для получения бронирования по ID.")
+    @Step("Получение букинга по ID: {bookingid}")
     public Response getId(int bookingid) {
         return getRequestSpec()
                 .when()
@@ -115,7 +108,6 @@ public class APIClient {
     }
 
     @Step("Создание токена для аутентификации")
-    @Description("Отправляет POST запрос для создания токена аутентификации.")
     public Response createToken() throws JsonProcessingException {
         User user = new User("admin", "password123");
         ObjectMapper objectMapper = new ObjectMapper();
@@ -133,8 +125,7 @@ public class APIClient {
                 .response();
     }
 
-    @Step("Создание новго букинга")
-    @Description("Отправляет POST запрос для создания нового бронирования.")
+    @Step("Создание нового букинга с ID: {bookingid}")
     public Response createPerson() throws JsonProcessingException {
         BookingDates bookingdates = new BookingDates("2018-01-01", "2019-01-01");
         Booking booking = new Booking("John", "Vinokurov", 123, true, bookingdates, "nope");
@@ -153,8 +144,7 @@ public class APIClient {
                 .response();
     }
 
-    @Step("Обновление букинга")
-    @Description("Отправляет PUT запрос для полного обновления бронирования.")
+    @Step("Полное обновление")
     public Response updatePerson(int bookingid, String token) throws JsonProcessingException {
         BookingDates bookingdates = new BookingDates("2019-01-01", "2020-01-01");
         Booking booking = new Booking(bookingid,"van", "vanov", 2500, true,  bookingdates, "no");
@@ -177,8 +167,7 @@ public class APIClient {
                 .response();
     }
 
-    @Step("Частичное обновление букинга")
-    @Description("Отправляет PATCH запрос для частичного обновления бронирования.")
+    @Step("Частичное обновление")
     public Response partUpdatePerson(int bookingid, String token) throws JsonProcessingException {
         PartBooking partbooking = new PartBooking("Sergey");
         ObjectMapper objectMapper = new ObjectMapper();
@@ -198,8 +187,7 @@ public class APIClient {
                 .response();
     }
 
-    @Step("Проверка удаления букинга")
-    @Description("Отправляет GET запрос для проверки удаления бронирования по ID.")
+    @Step("Проверка удаления")
     public Response getIdAfterDelete(int bookingid) {
         return getRequestSpec()
                 .when()
@@ -213,8 +201,7 @@ public class APIClient {
                 .response();
     }
 
-    @Step("Получение неверного букинга")
-    @Description("Отправляет GET запрос для получения бронирования по ID, ожидая статус 404.")
+    @Step("Получение неверного пользователя")
     public Response getById(int bookingid) {
         return getRequestSpec()
                 .when()

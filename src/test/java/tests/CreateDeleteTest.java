@@ -17,7 +17,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @Epic("Проверка удаления букинга")
 @Feature("Создать один букинг, а после удалить")
-
 public class CreateDeleteTest {
     private APIClient apiClient;
     private static int bookingId;
